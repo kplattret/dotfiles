@@ -37,4 +37,4 @@ alias dpl3-stag="git pull && git push && git push staging master && heroku resta
 alias dpl3-prod="git pull && git push && git push production master && heroku restart --app threebeards"
 
 # Homebrew routine
-alias brew-routine="brew update && brew upgrade && brew doctor"
+alias brew-routine="brew update && brew upgrade --all && brew doctor"
