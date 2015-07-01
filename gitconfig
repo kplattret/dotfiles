@@ -1,0 +1,9 @@
+[user]
+	name = Kevin Plattret
+	email = kevin@plattret.me
+[core]
+	excludesfile = ~/.gitignore_global
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
