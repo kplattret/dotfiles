@@ -32,7 +32,7 @@ export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Homebrew routine
-alias brew-routine="brew update && brew upgrade --all && brew doctor"
+alias brewup="brew update && brew upgrade --all && brew doctor"
 
 # Basic deploy
 alias dpl="git pull && git push && git push production"
