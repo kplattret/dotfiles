@@ -31,10 +31,21 @@ export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Aliases to deploy 3beards website
-alias dpl3-all="git pull && git push && git push staging master && git push production master && heroku restart --app stubble && heroku restart --app threebeards"
-alias dpl3-stag="git pull && git push && git push staging master && heroku restart --app stubble"
-alias dpl3-prod="git pull && git push && git push production master && heroku restart --app threebeards"
-
 # Homebrew routine
 alias brew-routine="brew update && brew upgrade --all && brew doctor"
+
+# Basic deploy
+alias dpl="git pull && git push && git push production"
+
+# Deploy 3beards app
+alias dpl3b="git pull && git push && git push staging && git push production && heroku restart --app stubble && heroku restart --app threebeards"
+
+# Deploy Unicorn Hunt app
+alias dpluh="git pull && git push && git push heroku && heroku restart"
+
+# Shortcuts for Git
+alias gst="git status"
+alias gdf="git diff"
+alias gac="git add -A && git commit -m"
+alias glg="git log --oneline"
+alias grb="git rebase master"
