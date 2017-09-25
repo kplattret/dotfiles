@@ -1,9 +1,9 @@
+# This is Git's per-user configuration file.
 [user]
 	name = Kevin Plattret
 	email = kevin@plattret.me
+[commit]
+	gpgsign = true
 [core]
+	editor = /usr/bin/vim
 	excludesfile = ~/.gitignore_global
-[credential]
-	helper = osxkeychain
-[push]
-	default = simple
