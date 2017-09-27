@@ -1,9 +1,5 @@
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
-
-colorscheme vividchalk
-
 
 " Tabs not spaces!
 " http://www.jwz.org/doc/tabs-vs-spaces.html
@@ -29,14 +25,12 @@ set visualbell " Turn off beeping
 :nnoremap { :tabprev<CR>
 :nnoremap } :tabnext<CR>
 
-
-autocmd FileType php setlocal tabstop=4 shiftwidth=4
-
-
 :vmap gl :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p<CR>
 
+" OSX stupid backspace fix
+set backspace=indent,eol,start
 
-"
+
 " set background=dark
 " if has("gui_running")
 "   colorscheme vividchalk
