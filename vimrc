@@ -30,6 +30,17 @@ set visualbell " Turn off beeping
 " OSX stupid backspace fix
 set backspace=indent,eol,start
 
+" Show linenumbers
+set number
+" set ruler
+
+" Always display the status line
+set laststatus=2
+
+" Theme and Styling
+set t_Co=256
+set background=dark
+
 
 " set background=dark
 " if has("gui_running")
