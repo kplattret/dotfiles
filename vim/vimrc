@@ -1,0 +1,46 @@
+set number        " display line numbers
+set nocompatible  " no compatibility with Vi
+set hidden        " allow buffer change w/o saving
+set lazyredraw    " don't update while executing macros
+set scrolloff=4   " keep at least 4 lines below cursor
+set visualbell    " use a visual bell instead of beeping
+set noswapfile    " don't create swap file
+set splitbelow    " open split below
+set splitright    " open vertical split to right
+
+" http://www.jwz.org/doc/tabs-vs-spaces.html
+set softtabstop=2 " interpret tab as an indent command
+set tabstop=2     " set tab character to 2 characters
+set expandtab     " turn tabs into whitespace
+set shiftwidth=2  " indent width for autoindent
+
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [L%l/%L\ (%p%%)\ C%c]
+
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=0*
+
+nmap <C-H> <C-W><C-H>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+
+nmap j gj
+nmap k gk
+nmap 0 ^
+
+imap jk <esc>
+imap kj <esc>
+
+let mapleader = "\<Space>"
+
+nmap <leader>vr :tabe $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>wq :wq<cr>
+nmap <leader>co ggVG*y
+nmap <leader>sc :vsp db/schema.rb<cr>
+
+" Bind `q` to close the buffer for help files
+autocmd Filetype help nmap <buffer> q :q<cr>
