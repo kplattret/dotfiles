@@ -1,3 +1,9 @@
+let mapleader = " "
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+call plug#end()
+
 set number        " display line numbers
 set nocompatible  " no compatibility with Vi
 set hidden        " allow buffer change w/o saving
@@ -31,8 +37,6 @@ nmap 0 ^
 
 imap jk <esc>
 imap kj <esc>
-
-let mapleader = "\<Space>"
 
 nmap <leader>vr :tabe $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
