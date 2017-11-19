@@ -31,6 +31,11 @@ set textwidth=80
 set colorcolumn=+1
 highlight ColorColumn ctermbg=0*
 
+nmap <Left> :echoe "Use h"<cr>
+nmap <Right> :echoe "Use l"<cr>
+nmap <Up> :echoe "Use k"<cr>
+nmap <Down> :echoe "Use j"<cr>
+
 nmap <C-H> <C-W><C-H>
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
