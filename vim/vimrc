@@ -25,25 +25,25 @@ endif
 colorscheme onedark
 let g:lightline = { 'colorscheme': 'onedark' }
 
-set number        " display line numbers
 set nocompatible  " no compatibility with Vi
+set noswapfile    " don't create swap file
 set hidden        " allow buffer change w/o saving
 set lazyredraw    " don't update while executing macros
-set scrolloff=4   " keep at least 4 lines below cursor
-set visualbell    " use a visual bell instead of beeping
-set noswapfile    " don't create swap file
 set splitbelow    " open split below
 set splitright    " open vertical split to right
-
-" http://www.jwz.org/doc/tabs-vs-spaces.html
-set softtabstop=2 " interpret tab as an indent command
+set number        " display line numbers
+set cursorline    " highlight current line
+set scrolloff=5   " keep at least 5 lines below cursor
 set tabstop=2     " set tab character to 2 characters
+set softtabstop=2 " interpret tab as an indent command
 set expandtab     " turn tabs into whitespace
 set shiftwidth=2  " indent width for autoindent
 
-set textwidth=80
-set colorcolumn=+1
-highlight ColorColumn ctermbg=0*
+" Wrap beyond 100th character except markdown
+set textwidth=100
+let &colorcolumn="81,101"
+autocmd FileType markdown set textwidth=0
+autocmd FileType markdown let &colorcolumn=""
 
 nmap <Left> :echoe "Use h"<cr>
 nmap <Right> :echoe "Use l"<cr>
