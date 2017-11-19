@@ -3,6 +3,10 @@ let mapleader = " "
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set number        " display line numbers
