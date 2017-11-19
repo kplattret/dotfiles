@@ -7,7 +7,23 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-commentary'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 call plug#end()
+
+"Use 24-bit mode in Vim/Neovim
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+colorscheme onedark
+let g:lightline = { 'colorscheme': 'onedark' }
 
 set number        " display line numbers
 set nocompatible  " no compatibility with Vi
@@ -24,8 +40,6 @@ set softtabstop=2 " interpret tab as an indent command
 set tabstop=2     " set tab character to 2 characters
 set expandtab     " turn tabs into whitespace
 set shiftwidth=2  " indent width for autoindent
-
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [L%l/%L\ (%p%%)\ C%c]
 
 set textwidth=80
 set colorcolumn=+1
