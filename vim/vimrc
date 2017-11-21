@@ -66,13 +66,22 @@ nmap <leader>vr :tabe $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
-nmap <leader>wq :wq<cr>
+nmap <leader>W :wq<cr>
+nmap <leader>Q :qall<cr>
 nmap <leader>co ggVG*y
+nmap <leader>rm :vsp README.md<cr>
 nmap <leader>sc :vsp db/schema.rb<cr>
 
 " Bind `q` to close the buffer for help files
 autocmd Filetype help nmap <buffer> q :q<cr>
 
-" Make CtrlP use ag for listing the files
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_caching = 0
+" Use the Silver Searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+" Bind \ to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nmap \ :Ag<space>
