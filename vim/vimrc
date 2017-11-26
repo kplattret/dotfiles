@@ -10,6 +10,7 @@ Plug 'tpope/vim-commentary'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "Use 24-bit mode in Vim/Neovim
@@ -24,6 +25,7 @@ endif
 
 colorscheme onedark
 let g:lightline = { 'colorscheme': 'onedark' }
+let g:indentLine_char = '▏'
 
 set nocompatible  " no compatibility with Vi
 set noswapfile    " don't create swap file
@@ -83,5 +85,5 @@ if executable('ag')
 endif
 
 " Bind \ to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nmap \ :Ag<space>
