@@ -19,3 +19,8 @@ export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
 alias brewup="brew update && brew upgrade && brew doctor"
+alias rdbc="bundle exec rails db:create"
+alias rdbd="bundle exec rails db:drop"
+alias rdbr="bundle exec rails db:drop && bundle exec rails db:create"
+alias rdbm="bundle exec rails db:migrate && bundle exec rails db:migrate RAILS_ENV=test"
+alias rdbs="bundle exec rails db:seed && bundle exec rails db:seed RAILS_ENV=test"
