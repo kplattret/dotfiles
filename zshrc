@@ -18,6 +18,7 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id.pub"
 export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
+alias ag="ag --path-to-ignore ~/.ignore"
 alias brewup="brew update && brew upgrade && brew doctor"
 alias rdbc="bundle exec rails db:create"
 alias rdbd="bundle exec rails db:drop"
