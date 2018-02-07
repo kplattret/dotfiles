@@ -28,19 +28,20 @@ colorscheme onedark
 let g:lightline = { 'colorscheme': 'onedark' }
 let g:indentLine_char = '▏'
 
-set nocompatible  " no compatibility with Vi
-set noswapfile    " don't create swap file
-set hidden        " allow buffer change w/o saving
-set lazyredraw    " don't update while executing macros
-set splitbelow    " open split below
-set splitright    " open vertical split to right
-set number        " display line numbers
-set cursorline    " highlight current line
-set scrolloff=5   " keep at least 5 lines below cursor
-set tabstop=2     " set tab character to 2 characters
-set softtabstop=2 " interpret tab as an indent command
-set expandtab     " turn tabs into whitespace
-set shiftwidth=2  " indent width for autoindent
+set nocompatible      " no compatibility with Vi
+set noswapfile        " don't create swap file
+set hidden            " allow buffer change w/o saving
+set lazyredraw        " don't update while executing macros
+set splitbelow        " open split below
+set splitright        " open vertical split to right
+set number            " display line numbers
+set cursorline        " highlight current line
+set scrolloff=5       " keep at least 5 lines below cursor
+set tabstop=2         " set tab character to 2 characters
+set softtabstop=2     " interpret tab as an indent command
+set expandtab         " turn tabs into whitespace
+set shiftwidth=2      " indent width for autoindent
+set clipboard=unnamed " share macOS clipboard
 
 " Wrap beyond 100th character except markdown
 set textwidth=100
