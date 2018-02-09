@@ -89,3 +89,6 @@ endif
 " Bind \ to grep shortcut
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nmap \ :Ag<space>
+
+" vim-polyglot options
+let g:vim_markdown_conceal = 0
