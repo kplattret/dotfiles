@@ -1,1 +1,13 @@
 UseKeychain yes
+
+Host roo-staging
+  HostName shell.rooenv-staging.io
+  ForwardAgent yes
+  RequestTTY yes
+  User ecs
+
+Host roo-production
+  HostName shell.deliverooapp.com
+  ForwardAgent yes
+  RequestTTY yes
+  User ecs
