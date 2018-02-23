@@ -14,9 +14,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'valloric/youcompleteme'
+Plug 'tpope/vim-endwise' " Automatically add `end` after `if`, `do`, `def`, etc
+Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 call plug#end()
 
-"Use 24-bit mode in Vim/Neovim
+" Use 24-bit mode in Vim/Neovim
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
