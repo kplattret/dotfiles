@@ -69,8 +69,6 @@ nmap 0 ^
 
 imap jk <esc>
 imap kj <esc>
-imap kl <esc>
-imap lk <esc>
 
 nmap <leader>vr :tabe $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
