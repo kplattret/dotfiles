@@ -16,6 +16,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-endwise' " Automatically add `end` after `if`, `do`, `def`, etc
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
+Plug 'etdev/vim-hexcolor' " Highlight HEX and RGB color codes in CSS files
 call plug#end()
 
 " Use 24-bit mode in Vim/Neovim
