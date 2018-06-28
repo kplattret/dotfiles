@@ -48,11 +48,9 @@ set expandtab         " turn tabs into whitespace
 set shiftwidth=2      " indent width for autoindent
 set clipboard=unnamed " share macOS clipboard
 
-" Wrap beyond 100th character except markdown
+" Wrap text beyond 100th character
 set textwidth=100
 let &colorcolumn="81,101"
-autocmd FileType markdown set textwidth=0
-autocmd FileType markdown let &colorcolumn=""
 
 nmap <Left> :echoe "Use h"<cr>
 nmap <Right> :echoe "Use l"<cr>
