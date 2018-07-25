@@ -4,7 +4,14 @@ function green_color() { echo "\033[0;32m\c"; }
 function blue_color() { echo "\033[0;34m\c"; }
 function reset_color() { echo "\033[0m\c"; }
 
-function welcome_message() {
+function abort_if_prompted() {
+  if [ $1 != "y" ]; then
+    blue_color; echo "🙂 Alright then, another time maybe! 👋"; reset_color
+    exit 1
+  fi
+}
+
+function intro_message() {
   green_color
   echo "                                                                                "
   echo "                              __      __  _____ __                              "
@@ -21,174 +28,94 @@ function welcome_message() {
   echo "Fear not, it will not install anything without asking you first!"
 
   green_color
-  read -p "✨ Shall we proceed with the installation? (y/N) " -n 1
-  echo
-
-  reset_color
-  if [ $REPLY != "y" ]; then
-    echo "🙂 Alright then, another time maybe! 👋"
-    exit 1
-  fi
+  read -p "✨ Shall we proceed with the installation? (y/N) " -n 1; echo
+  abort_if_prompted $REPLY
 }
 
-function install_command_line_tools() {
-  blue_color
-  echo "🍏 Trying to detect installed Command Line Tools..."
+function installation_commands() {
+  emoji=$1; name=$2; condition=$3;
 
-  if ! [ $(xcode-select -p) ]; then
-    echo "🍏 Looks like you don't have them, but they're needed for local development."
+  blue_color
+  echo "$emoji Trying to detect installed $name..."
+
+  if ! [ $(eval $condition) ]; then
+    echo "$emoji Looks like we don't have it, but it's needed for our setup."
 
     green_color
-    read -p "🍏 Shall we install the Command Line Tools? (y/N) " -n 1
-    echo
-
-    if [ $REPLY != "y" ]; then
-      reset_color
-      echo "🙂 Alright then, another time maybe! 👋"
-      exit 1
-    fi
+    read -p "$emoji Shall we install $name? (y/N) " -n 1; echo
+    abort_if_prompted $REPLY
 
     blue_color
-    echo "🍏 Installing the Command Line Tools... (this can take a few minutes)"
-    xcode-select --install
-    echo "🍏 Command Line Tools installed successfully! 🎉"
+    shift 3
+    while test $# -gt 1; do
+      echo "$emoji $1"
+      eval $2
+      shift 2
+    done
+
+    echo "$emoji $name installed successfully! 🎉"
   else
-    echo "🍏 Looks like you have them already! Moving on."
+    echo "$emoji Looks like you have it already! Moving on."
   fi
 
-  reset_color
-  sleep 1
+  reset_color; sleep 1
 }
 
-function install_homebrew() {
-  blue_color
-  echo "🍺 Trying to detect installed Homebrew..."
+function installation_files() {
+  emoji=$1; name=$2; kind=$3; app=$4;
 
-  if ! [ $(which brew) ]; then
-    echo "🍺 Looks like you don't have it, but we need it for our setup."
-
-    green_color
-    read -p "🍺 Shall we install Homebrew? (y/N) " -n 1
-    echo
-
-    if [ $REPLY != "y" ]; then
-      reset_color
-      echo "🙂 Alright then, another time maybe! 👋"
-      exit 1
-    fi
-
-    blue_color
-    echo "🍺 Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-    echo "🍺 Updating Homebrew, upgrading packaging and verifying installation..."
-    brew update && brew upgrade && brew cleanup && brew doctor
-
-    echo "🍺 Homebrew installed successfully! 🎉"
-  else
-    blue_color
-    echo "🍺 Looks like you have it already! Moving on."
-  fi
-
-  reset_color
-  sleep 1
-}
-
-function install_iterm() {
-  blue_color
-  echo "📺 Trying to detect installed iTerm..."
-
-  if ! [ $(ls /Applications/ | grep iTerm.app) ]; then
-    echo "📺 Looks like you don't have it, but we need it for our setup."
-
-    green_color
-    read -p "📺 Shall we install iTerm? (y/N) " -n 1
-    echo
-
-    if [ $REPLY != "y" ]; then
-      reset_color
-      echo "🙂 Alright then, another time maybe! 👋"
-      exit 1
-    fi
-
-    blue_color
-    echo "📺 Installing iTerm..."
-    brew cask install iterm2
-
-    echo "📺 iTerm installed successfully! 🎉"
-  else
-    blue_color
-    echo "📺 Looks like you have it already! Moving on."
-  fi
-
-  reset_color
-  sleep 1
-}
-
-function install_color_scheme() {
   green_color
-  read -p "🎨 Shall we install the One Dark color-scheme for iTerm? (y/N) " -n 1
-  echo
+  read -p "$emoji Shall we install the $name $kind? (y/N) " -n 1; echo
 
+  blue_color
   if [ $REPLY == "y" ]; then
-    blue_color
-    echo "🎨 iTerm will open in 5 seconds. Import the color-scheme and close the app."
+    echo "$emoji $app will open in 5 seconds. Install the $kind and close the app."
     sleep 5
-    open -W ./iterm/one-dark.itermcolors
 
-    echo "🎨 One Dark color-scheme installed successfully! 🎉"
+    shift 4
+    while test $# -gt 0; do
+      open -W $1
+      shift
+    done
+
+    echo "$emoji $name $kind installed successfully! 🎉"
   else
-    blue_color
-    echo "🎨 Skipping One Dark color-scheme installation."
+    echo "$emoji Skipping $name $kind installation."
   fi
 
-  reset_color
-  sleep 1
+  reset_color; sleep 1
 }
 
-function install_fonts() {
-  green_color
-  read -p "🔠 Shall we install the patched Menlo font-family? (y/N) " -n 1
-  echo
 
-  if [ $REPLY == "y" ]; then
-    blue_color
-    echo "🔠 Font Book will open in 5 seconds. Install the fonts and close the app."
-    sleep 5
-    open -W ./iterm/menlo-powerline.ttf
-    open -W ./iterm/menlo-powerline-bold.ttf
-    open -W ./iterm/menlo-powerline-italic.ttf
-    open -W ./iterm/menlo-powerline-bold-italic.ttf
+# The script starts here
+intro_message
 
-    echo "🔠 Menlo font-family installed successfully! 🎉"
-  else
-    blue_color
-    echo "🔠 Skipping Menlo font-family installation..."
-  fi
+installation_commands "🍏" "Command Line Tools" "xcode-select -p"\
+  "Installing Command Line Tools..."\
+  "xcode-select --install"
 
-  reset_color
-  sleep 1
-}
+installation_commands "🍺" "Homebrew" "which brew"\
+  "Installing Homebrew..."\
+  'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'\
+  "Updating Homebrew, upgrading packaging and verifying installation..."\
+  "brew update && brew upgrade && brew cleanup && brew doctor"
 
-welcome_message
-install_command_line_tools
-install_homebrew
-install_iterm
-install_color_scheme
-install_fonts
+installation_commands "📺" "iTerm" "ls /Applications/ | grep iTerm.app"\
+  "Installing iTerm..."\
+  "brew cask install iterm2"
 
-blue_color
-echo "😃 All done, happy coding! 🚀"
-reset_color
+installation_files "🎨" "One Dark" "color-scheme" "iTerm"\
+  "./iterm/one-dark.itermcolors"
 
-unset -f green_color\
-  blue_color\
-  reset_color\
-  welcome_message\
-  install_command_line_tools\
-  install_homebrew\
-  install_iterm\
-  install_color_scheme\
-  install_fonts
+installation_files "🔠" "Menlo" "font-family" "Font Book"\
+  "./iterm/menlo-powerline.ttf"\
+  "./iterm/menlo-powerline-bold.ttf"\
+  "./iterm/menlo-powerline-italic.ttf"\
+  "./iterm/menlo-powerline-bold-italic.ttf"
+
+blue_color; echo "😃 All done, happy coding! 🚀"; reset_color
+
+unset -f green_color blue_color reset_color\
+  intro_message installation_commands installation_files
 
 exit 0
