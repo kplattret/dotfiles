@@ -6,7 +6,7 @@ function reset_color() { echo "\033[0m\c"; }
 
 function abort_if_prompted() {
   if [[ $1 != "y" ]]; then
-    blue_color; echo "🙂 Alright then, another time maybe! 👋"; reset_color
+    blue_color; echo "\n🙂 Alright then, another time maybe! 👋\n"; reset_color
     exit 1
   fi
 }
@@ -44,7 +44,7 @@ function installation_commands() {
 
     shift 3
     while test $# -gt 1; do
-      blue_color; echo "$emoji $1"
+      blue_color; echo "$emoji $1"; reset_color
       eval $2
       shift 2
     done
@@ -78,6 +78,17 @@ function installation_files() {
   fi
 
   reset_color; sleep 1
+}
+
+function setup_dotfiles() {
+  ln -s ~/.dotfiles/ag/ignore ~/.ignore
+  ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+  ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
+  ln -s ~/.dotfiles/ssh/config ~/.ssh/config
+  ln -s ~/.dotfiles/vim ~/.vim
+  ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+  mv ~/.zshrc ~/.zshrc_$(date +%F-%H%M%S)
+  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 }
 
 
@@ -116,22 +127,28 @@ installation_commands "📦" "Git and Vim" 'brew list | grep "git\|vim"'\
   "Installing Z and the Silver Searcher..."\
   "brew install z the_silver_searcher"
 
+installation_commands "🔧" "dotfiles" "ls -a ~/ | grep .dotfiles"\
+  "Cloning repository from GitHub..."\
+  "git clone git@github.com:kplattret/dotfiles.git ~/.dotfiles"\
+  "Create symlinks for config files..."\
+  "setup_dotfiles"
+
 installation_commands "📺" "iTerm" "ls /Applications/ | grep iTerm.app"\
   "Installing iTerm..."\
   "brew cask install iterm2"
 
 installation_files "🎨" "One Dark" "color-scheme" "iTerm"\
-  "./iterm/one-dark.itermcolors"
+  "~/.dotfiles/iterm/one-dark.itermcolors"
 
 installation_files "🔠" "Menlo" "font-family" "Font Book"\
-  "./iterm/menlo-powerline.ttf"\
-  "./iterm/menlo-powerline-bold.ttf"\
-  "./iterm/menlo-powerline-italic.ttf"\
-  "./iterm/menlo-powerline-bold-italic.ttf"
+  "~/.dotfiles/iterm/menlo-powerline.ttf"\
+  "~/.dotfiles/iterm/menlo-powerline-bold.ttf"\
+  "~/.dotfiles/iterm/menlo-powerline-italic.ttf"\
+  "~/.dotfiles/iterm/menlo-powerline-bold-italic.ttf"
 
-blue_color; echo "\n😃 All done – happy coding! 🚀\n"; reset_color
+blue_color; echo "\n😃 You're all set. Happy coding! 🚀\n"; reset_color
 
 unset -f green_color blue_color reset_color\
-  intro_message installation_commands installation_files
+  intro_message installation_commands installation_files setup_dotfiles
 
 exit 0
