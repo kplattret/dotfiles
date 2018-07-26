@@ -84,3 +84,10 @@ let g:vim_markdown_conceal = 0
 
 " Enable spell-check for Markdown files
 autocmd FileType markdown setlocal spell
+
+" netrw options
+let g:netrw_banner = 0 " Remove the directory banner
+let g:netrw_liststyle = 3 " Set tree view as default
+let g:netrw_bufsettings = 'nu' " Show line numbers
+let g:netrw_preview = 1 " Open preview in vertical split
+let g:netrw_alto = 0 " Open preview to the right
