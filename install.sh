@@ -5,7 +5,7 @@ function blue_color() { echo "\033[0;34m\c"; }
 function reset_color() { echo "\033[0m\c"; }
 
 function abort_if_prompted() {
-  if [ $1 != "y" ]; then
+  if [[ $1 != "y" ]]; then
     blue_color; echo "🙂 Alright then, another time maybe! 👋"; reset_color
     exit 1
   fi
@@ -25,37 +25,33 @@ function intro_message() {
   blue_color
   echo "This script will guide you through installing your local development environment"
   echo "for Ruby on Rails and React applications, with Zsh, Git, Vim and other niceties."
-  echo "Fear not, it will not install anything without asking you first!"
+  echo "Fear not, it will not install anything without asking you first!                "
 
-  green_color
-  read -p "✨ Shall we proceed with the installation? (y/N) " -n 1; echo
+  green_color; echo; read -p "✨ Shall we proceed with the installation? (y/N) " -n 1; echo
   abort_if_prompted $REPLY
 }
 
 function installation_commands() {
   emoji=$1; name=$2; condition=$3;
 
-  blue_color
-  echo "$emoji Trying to detect installed $name..."
+  blue_color; echo "\n$emoji Trying to detect installed $name..."
 
-  if ! [ $(eval $condition) ]; then
-    echo "$emoji Looks like we don't have it, but it's needed for our setup."
+  if ! [[ $(eval $condition) ]]; then
+    blue_color; echo "$emoji Looks like we don't have it, but it's needed for our setup."
 
-    green_color
-    read -p "$emoji Shall we install $name? (y/N) " -n 1; echo
+    green_color; read -p "$emoji Shall we install $name? (y/N) " -n 1; echo
     abort_if_prompted $REPLY
 
-    blue_color
     shift 3
     while test $# -gt 1; do
-      echo "$emoji $1"
+      blue_color; echo "$emoji $1"
       eval $2
       shift 2
     done
 
-    echo "$emoji $name installed successfully! 🎉"
+    blue_color; echo "$emoji $name installed successfully! 🎉"
   else
-    echo "$emoji Looks like you have it already! Moving on."
+    blue_color; echo "$emoji Looks like we already have it! Moving on."
   fi
 
   reset_color; sleep 1
@@ -64,12 +60,10 @@ function installation_commands() {
 function installation_files() {
   emoji=$1; name=$2; kind=$3; app=$4;
 
-  green_color
-  read -p "$emoji Shall we install the $name $kind? (y/N) " -n 1; echo
+  green_color; echo; read -p "$emoji Shall we install the $name $kind? (y/N) " -n 1; echo
 
-  blue_color
-  if [ $REPLY == "y" ]; then
-    echo "$emoji $app will open in 5 seconds. Install the $kind and close the app."
+  if [[ $REPLY == "y" ]]; then
+    blue_color; echo "$emoji $app will open in 5 seconds. Install the $kind and close the app."
     sleep 5
 
     shift 4
@@ -78,9 +72,9 @@ function installation_files() {
       shift
     done
 
-    echo "$emoji $name $kind installed successfully! 🎉"
+    blue_color; echo "$emoji $name $kind installed successfully! 🎉"
   else
-    echo "$emoji Skipping $name $kind installation."
+    blue_color; echo "$emoji Skipping $name $kind installation."
   fi
 
   reset_color; sleep 1
@@ -100,6 +94,28 @@ installation_commands "🍺" "Homebrew" "which brew"\
   "Updating Homebrew, upgrading packaging and verifying installation..."\
   "brew update && brew upgrade && brew cleanup && brew doctor"
 
+installation_commands "🐚" "Zsh and Oh My Zsh" "which zsh"\
+  "Installing Zsh..."\
+  "brew install zsh zsh-completions"\
+  "Setting Zsh as default shell..."\
+  "chsh -s /bin/zsh"\
+  "Installing Oh My Zsh..."\
+  'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+
+installation_commands "🔑" "SSH keys" 'ls ~/.ssh/ | grep "id_rsa.pub\|id_rsa\b"'\
+  "Your ~/.ssh folder will open in 5 seconds. Add your keys and come back here."\
+  "sleep 5; open ~/.ssh"\
+  "Waiting for your keys..."\
+  "until [[ -f ~/.ssh/id_rsa && -f ~/.ssh/id_rsa.pub ]]; do sleep 5; done; open -a Terminal.app"
+
+installation_commands "📦" "Git and Vim" 'brew list | grep "git\|vim"'\
+  "Installing Git..."\
+  "brew install git"\
+  "Installing Vim"\
+  "brew install vim"\
+  "Installing Z and the Silver Searcher..."\
+  "brew install z the_silver_searcher"
+
 installation_commands "📺" "iTerm" "ls /Applications/ | grep iTerm.app"\
   "Installing iTerm..."\
   "brew cask install iterm2"
@@ -113,7 +129,7 @@ installation_files "🔠" "Menlo" "font-family" "Font Book"\
   "./iterm/menlo-powerline-italic.ttf"\
   "./iterm/menlo-powerline-bold-italic.ttf"
 
-blue_color; echo "😃 All done, happy coding! 🚀"; reset_color
+blue_color; echo "\n😃 All done – happy coding! 🚀\n"; reset_color
 
 unset -f green_color blue_color reset_color\
   intro_message installation_commands installation_files
