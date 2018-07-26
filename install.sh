@@ -63,7 +63,7 @@ function installation_files() {
   green_color; echo; read -p "$emoji Shall we install the $name $kind? (y/N) " -n 1; echo
 
   if [[ $REPLY == "y" ]]; then
-    blue_color; echo "$emoji $app will open in 5 seconds. Install the $kind and close the app."
+    blue_color; echo "$emoji $app will open shortly. Install the $kind and quit the app."
     sleep 5
 
     shift 4
@@ -114,7 +114,7 @@ installation_commands "🐚" "Zsh and Oh My Zsh" "which zsh"\
   'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
 
 installation_commands "🔑" "SSH keys" 'ls ~/.ssh/ | grep "id_rsa.pub\|id_rsa\b"'\
-  "Your ~/.ssh folder will open in 5 seconds. Add your keys and come back here."\
+  "Your ~/.ssh folder will open shortly. Add your keys and come back here."\
   "sleep 5; open ~/.ssh"\
   "Waiting for your keys..."\
   "until [[ -f ~/.ssh/id_rsa && -f ~/.ssh/id_rsa.pub ]]; do sleep 5; done; open -a Terminal.app"
@@ -145,6 +145,46 @@ installation_files "🔠" "Menlo" "font-family" "Font Book"\
   "~/.dotfiles/iterm/menlo-powerline-bold.ttf"\
   "~/.dotfiles/iterm/menlo-powerline-italic.ttf"\
   "~/.dotfiles/iterm/menlo-powerline-bold-italic.ttf"
+
+installation_commands "💎" "Ruby" "brew list | grep rbenv"\
+  "Installing rbenv..."\
+  "brew install rbenv"\
+  "Installing latest stable version of Ruby..."\
+  "rbenv install 2.5.1 && rbenv global 2.5.1 && rbenv rehash"
+
+installation_commands "🐯" "puma-dev" "brew list | grep puma-dev"\
+  "Installing puma-dev..."\
+  "brew install puma/puma/puma-dev"\
+  "Configuring puma-dev..."\
+  "sudo puma-dev -setup && puma-dev -install"\
+  "The Keychain Access app will open shortly. Search for 'puma', move the\n\
+   certificate to the 'System' keychain and quit the app."\
+  "sleep 5; open -W /Applications/Utilities/Keychain\ Access.app"
+
+installation_commands "🐘" "Postgres.app" "ls /Applications/ | grep Postgres.app"\
+  "Your Internet browser will open shortly. Install the app and come back here."\
+  "sleep 5; open https://postgresapp.com/"\
+  "Waiting for Postgres.app to be installed..."\
+  "until [[ -e /Applications/Postgres.app ]]; do sleep 5; done"\
+  "Adding Postgres.app to the path..."\
+  "sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin \
+   | sudo tee /etc/paths.d/postgresapp"
+
+installation_commands "⚡️" "Node.js" "brew list | grep nvm"\
+  "Installing nvm..."\
+  "brew install nvm"\
+  "Installing Node.js"\
+  "nvm install node"
+
+installation_commands "⭐️" "Redis" "brew list | grep redis"\
+  "Installing Redis..."\
+  "brew install redis"\
+  "Starting Redis..."\
+  "brew services start redis"
+
+installation_commands "🚢" "Heroku CLI" "brew list | grep heroku"\
+  "Installing Heroku CLI..."\
+  "brew install heroku"
 
 blue_color; echo "\n😃 You're all set. Happy coding! 🚀\n"; reset_color
 
