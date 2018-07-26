@@ -19,38 +19,30 @@ Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'etdev/vim-hexcolor' " Highlight HEX and RGB color codes in CSS files
 call plug#end()
 
-" Use 24-bit mode in Vim/Neovim
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
+if (empty($TMUX) && has("termguicolors"))
+  set termguicolors " Use 24-bit mode
 endif
 
 colorscheme onedark
 let g:lightline = { 'colorscheme': 'onedark' }
 let g:indentLine_char = '▏'
 
-set nocompatible      " no compatibility with Vi
-set noswapfile        " don't create swap file
-set hidden            " allow buffer change w/o saving
-set lazyredraw        " don't update while executing macros
-set splitbelow        " open split below
-set splitright        " open vertical split to right
-set number            " display line numbers
-set cursorline        " highlight current line
-set scrolloff=5       " keep at least 5 lines below cursor
-set tabstop=2         " set tab character to 2 characters
-set softtabstop=2     " interpret tab as an indent command
-set expandtab         " turn tabs into whitespace
-set shiftwidth=2      " indent width for autoindent
-set clipboard=unnamed " share macOS clipboard
-
-" Wrap text beyond 100th character
-set textwidth=100
-let &colorcolumn="81,101"
+set nocompatible " No compatibility with Vi
+set noswapfile " Don't create swap file
+set hidden " Allow buffer change w/o saving
+set lazyredraw " Don't update while executing macros
+set splitbelow " Open split below
+set splitright " Open vertical split to right
+set number " Display line numbers
+set cursorline " Highlight current line
+set scrolloff=5 " Show at least 5 lines below cursor
+set tabstop=2 " Set tab character to 2 spaces
+set softtabstop=2 " Interpret tab as an indent command
+set expandtab " Turn tabs into whitespace
+set shiftwidth=2 " Indent width for autoindent
+set clipboard=unnamed " Share macOS clipboard
+set textwidth=100 " Wrap text beyond 100th column
+let &colorcolumn="81,101" " Highlight 81st and 101st columns
 
 nmap <Left> :echoe "Use h"<cr>
 nmap <Right> :echoe "Use l"<cr>
@@ -67,16 +59,11 @@ nmap 0 ^
 nmap j gj
 nmap k gk
 
-nmap <leader>Q :qall<cr>
-nmap <leader>W :wq<cr>
 nmap <leader>e :e<cr>
 nmap <leader>q :q<cr>
 nmap <leader>w :w<cr>
-
-nmap <leader>rm :vsp README.md<cr>
 nmap <leader>sc :vsp db/schema.rb<cr>
 nmap <leader>so :source $MYVIMRC<cr>
-nmap <leader>vr :tabe $MYVIMRC<cr>
 
 " Bind `q` to close the buffer for help files
 autocmd Filetype help nmap <buffer> q :q<cr>
