@@ -81,13 +81,13 @@ function installation_files() {
 }
 
 function setup_dotfiles() {
+  rm -rf ~/.ignore ~/.gitconfig ~/.gitignore_global ~/.ssh/config ~/.vim ~/.vimrc ~/.zshrc
   ln -s ~/.dotfiles/ag/ignore ~/.ignore
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
   ln -s ~/.dotfiles/vim ~/.vim
   ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-  mv ~/.zshrc ~/.zshrc_$(date +%F-%H%M%S)
   ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 }
 
