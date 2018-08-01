@@ -23,9 +23,9 @@ if (empty($TMUX) && has("termguicolors"))
   set termguicolors " Use 24-bit mode
 endif
 
-colorscheme onedark
-let g:lightline = { 'colorscheme': 'onedark' }
-let g:indentLine_char = '▏'
+if filereadable(expand("$HOME/.vim/plugged/onedark.vim/colors/onedark.vim"))
+  colorscheme onedark
+endif
 
 set nocompatible " No compatibility with Vi
 set noswapfile " Don't create swap file
@@ -91,3 +91,9 @@ let g:netrw_liststyle = 3 " Set tree view as default
 let g:netrw_bufsettings = 'nu' " Show line numbers
 let g:netrw_preview = 1 " Open preview in vertical split
 let g:netrw_alto = 0 " Open preview to the right
+
+" lightline options
+let g:lightline = { 'colorscheme': 'onedark' }
+
+" indentLine options
+let g:indentLine_char = '▏'
