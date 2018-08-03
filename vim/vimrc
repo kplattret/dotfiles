@@ -17,7 +17,7 @@ Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-endwise' " Automatically add `end` after `if`, `do`, `def`, etc
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'etdev/vim-hexcolor' " Highlight HEX and RGB color codes in CSS files
-Plug 'vim-syntastic/syntastic' " Syntax checking hacks for vim
+Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim
 call plug#end()
 
 if (empty($TMUX) && has("termguicolors"))
@@ -98,10 +98,3 @@ let g:lightline = { 'colorscheme': 'onedark' }
 
 " indentLine options
 let g:indentLine_char = '▏'
-
-" Syntastic options
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
