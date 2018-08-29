@@ -22,6 +22,8 @@ eval "$(rbenv init -)"
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+export PATH="$PATH:$HOME/Library/flutter/bin"
+
 alias ag="ag --path-to-ignore ~/.ignore"
 alias brewup="brew update && brew upgrade && brew doctor"
 alias by="bundle && cd client && yarn && cd .."
