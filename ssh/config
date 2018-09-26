@@ -1,12 +1,18 @@
 UseKeychain yes
 
-Host roo-staging
+Host hopper-sandbox
+  HostName shell.rooenv-sandbox.io
+  ForwardAgent yes
+  RequestTTY yes
+  User ecs
+
+Host hopper-staging
   HostName shell.rooenv-staging.io
   ForwardAgent yes
   RequestTTY yes
   User ecs
 
-Host roo-production
+Host hopper-production
   HostName shell.deliverooapp.com
   ForwardAgent yes
   RequestTTY yes
