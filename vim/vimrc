@@ -21,6 +21,7 @@ Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim
 Plug 'kana/vim-textobj-user' " Create your own text objects
 Plug 'kana/vim-textobj-entire' " Text objects for entire buffers
 Plug 'junegunn/rainbow_parentheses.vim' " Show nested parentheses in different colours
+Plug 'junegunn/goyo.vim' " Distraction-free writing
 call plug#end()
 
 if (empty($TMUX) && has("termguicolors"))
@@ -68,6 +69,7 @@ nmap <leader>q :q<cr>
 nmap <leader>w :w<cr>
 nmap <leader>sc :vsp db/schema.rb<cr>
 nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>g :Goyo<cr>
 
 " Bind `q` to close the buffer for help files
 autocmd Filetype help nmap <buffer> q :q<cr>
@@ -101,3 +103,6 @@ let g:lightline = { 'colorscheme': 'onedark' }
 
 " indentLine options
 let g:indentLine_char = '▏'
+
+" goyo.vim options
+let g:goyo_width = 100
