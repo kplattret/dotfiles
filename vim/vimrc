@@ -18,6 +18,8 @@ Plug 'tpope/vim-endwise' " Automatically add `end` after `if`, `do`, `def`, etc
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'etdev/vim-hexcolor' " Highlight HEX and RGB color codes in CSS files
 Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim
+Plug 'kana/vim-textobj-user' " Create your own text objects
+Plug 'kana/vim-textobj-entire' " Text objects for entire buffers
 call plug#end()
 
 if (empty($TMUX) && has("termguicolors"))
