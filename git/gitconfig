@@ -1,6 +1,7 @@
 [user]
 	name = Kevin Plattret
 	email = kevin@plattret.me
+	signingkey = 0xEC877DBDB503D86A
 [commit]
 	gpgsign = true
 [core]
@@ -8,3 +9,5 @@
 	excludesfile = ~/.gitignore_global
 [pager]
 	branch = false
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
