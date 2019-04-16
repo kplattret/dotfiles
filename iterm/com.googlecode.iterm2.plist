@@ -356,6 +356,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>FC2FECCA-4883-48A1-AA2D-F33C589B52A0</string>
+	<key>EnableDivisionView</key>
+	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -459,6 +461,8 @@
 	</dict>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>JobName</key>
+	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -506,11 +510,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>329 300 918 452 0 0 1680 1027 </string>
+	<string>329 316 796 486 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 23 1680 1004 0 0 1680 1027 </string>
+	<string>0 0 2560 1417 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 23 1680 1004 0 0 1680 1027 </string>
+	<string>1008 303 1060 704 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>364 158 1060 727 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -858,6 +864,7 @@
 				<string>slogin</string>
 				<string>telnet</string>
 				<string>vim</string>
+				<string>tmux</string>
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
@@ -1234,7 +1241,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/kevin</string>
 		</dict>
@@ -1245,6 +1252,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>0216442F-7566-4415-AD6F-076320582756</string>
+	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
+	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1305,16 +1314,22 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-11-21T18:04:03Z</date>
+	<date>2019-04-18T12:56:26Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>ShowBookmarkName</key>
+	<false/>
 	<key>ShowFullScreenTabBar</key>
+	<true/>
+	<key>UseBorder</key>
+	<false/>
+	<key>WindowNumber</key>
 	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.5</string>
+	<string>3.2.8</string>
 </dict>
 </plist>
