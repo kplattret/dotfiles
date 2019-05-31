@@ -22,6 +22,7 @@ Plug 'kana/vim-textobj-user' " Create your own text objects
 Plug 'kana/vim-textobj-entire' " Text objects for entire buffers
 Plug 'junegunn/rainbow_parentheses.vim' " Show nested parentheses in different colours
 Plug 'junegunn/goyo.vim' " Distraction-free writing
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  } " Go language support
 call plug#end()
 
 if (empty($TMUX) && has("termguicolors"))
