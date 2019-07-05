@@ -82,7 +82,6 @@ function installation_files() {
 
 function setup_dotfiles() {
   rm -rf ~/.ignore ~/.gitconfig ~/.gitignore_global ~/.ssh/config ~/.vim ~/.vimrc ~/.zshrc
-  ln -s ~/.dotfiles/ag/ignore ~/.ignore
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
@@ -125,8 +124,8 @@ installation_commands "📦" "Git and Vim" 'brew list | grep "git\|vim"'\
   "brew install git"\
   "Installing Vim"\
   "brew install vim"\
-  "Installing Z and the Silver Searcher..."\
-  "brew install z the_silver_searcher"
+  "Installing Z and ripgrep..."\
+  "brew install z ripgrep"
 
 installation_commands "🔧" "dotfiles" "ls -a ~/ | grep .dotfiles"\
   "Cloning repository from GitHub..."\
