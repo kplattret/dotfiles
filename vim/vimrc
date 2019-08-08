@@ -129,3 +129,17 @@ let g:go_highlight_functions = 1 " Highlight function and method declarations
 " " |'g:go_highlight_functions'|.
 let g:go_highlight_function_arguments = 1
 let g:go_highlight_types = 1 " Highlight struct and interface names
+let g:go_alternate_mode = "vsplit"
+
+nnoremap <leader>t :GoTest<cr>
+
+nmap <leader>a :call ToggleAlternateFile()<cr>
+function! ToggleAlternateFile()
+  let extension = expand('%:e')
+
+  if extension == 'go'
+    execute "GoAlternate"
+  elseif extension == 'rb'
+    execute "AV"
+  endif
+endfunction
