@@ -81,7 +81,16 @@ function installation_files() {
 }
 
 function setup_dotfiles() {
-  rm -rf ~/.ignore ~/.gitconfig ~/.gitignore_global ~/.ssh/config ~/.vim ~/.vimrc ~/.zshrc
+  rm -rf ~/.config/alacritty/alacritty.yml \
+    ~/.gitconfig \
+    ~/.gitignore_global \
+    ~/.ssh/config \
+    ~/.tmux.conf \
+    ~/.vim \
+    ~/.vimrc \
+    ~/.zshrc
+
+  ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
