@@ -53,6 +53,7 @@ set expandtab " Turn tabs into whitespace
 set shiftwidth=2 " Indent width for autoindent
 set clipboard=unnamed " Share macOS clipboard
 set textwidth=100 " Wrap text beyond 100th column
+set foldmethod=indent " Fold code based on indentation
 let &colorcolumn="81,101" " Highlight 81st and 101st columns
 
 nmap <Left> :echoe "Use h"<cr>
@@ -146,3 +147,9 @@ function! ToggleAlternateFile()
     execute "AV"
   endif
 endfunction
+
+" Keep all folds open when a file is opened
+augroup OpenAllFoldsOnFileOpen
+  autocmd!
+  autocmd BufRead * normal zR
+augroup END
