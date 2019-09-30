@@ -1,7 +1,7 @@
 [user]
 	name = Kevin Plattret
-	email = kevin@plattret.me
-	signingkey = 0xEC877DBDB503D86A
+	email = kevin@plattret.com
+	signingkey = 0x97BA5978D7AC5851
 [commit]
 	gpgsign = true
 [core]
