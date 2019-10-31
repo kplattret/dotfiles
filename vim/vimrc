@@ -22,7 +22,6 @@ Plug 'kana/vim-textobj-user' " Create your own text objects
 Plug 'kana/vim-textobj-entire' " Text objects for entire buffers
 Plug 'junegunn/rainbow_parentheses.vim' " Show nested parentheses in different colours
 Plug 'junegunn/goyo.vim' " Distraction-free writing
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  } " Go language support
 Plug 'jremmen/vim-ripgrep' " Like the Silver Searcher, but faster
 Plug 'jparise/vim-graphql' " GraphQL support
 Plug 'elixir-editors/vim-elixir' " Elixir language support
@@ -126,26 +125,11 @@ if executable('rg')
   let g:ctrlp_use_caching = 0
 endif
 
-" vim-go options
-let g:go_highlight_extra_types = 1 " Highlight commonly used library types (`io.Reader`, etc.)
-let g:go_highlight_operators = 1 " Highlight operators such as `:=` , `==`, `-=`, etc.
-let g:go_highlight_functions = 1 " Highlight function and method declarations
-" Highlight the variable names in arguments and return values in function
-" " declarations. Setting this implies the functionality from
-" " |'g:go_highlight_functions'|.
-let g:go_highlight_function_arguments = 1
-let g:go_highlight_types = 1 " Highlight struct and interface names
-let g:go_alternate_mode = "vsplit"
-
-nnoremap <leader>t :GoTest<cr>
-
 nmap <leader>a :call ToggleAlternateFile()<cr>
 function! ToggleAlternateFile()
   let extension = expand('%:e')
 
-  if extension == 'go'
-    execute "GoAlternate"
-  elseif extension == 'rb'
+  if extension == 'rb'
     execute "AV"
   endif
 endfunction
