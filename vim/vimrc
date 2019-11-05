@@ -37,6 +37,7 @@ if filereadable(expand("$HOME/.vim/plugged/onedark.vim/colors/onedark.vim"))
   colorscheme onedark
 endif
 
+set encoding=utf-8
 set nocompatible " No compatibility with Vi
 set noswapfile " Don't create swap file
 set hidden " Allow buffer change w/o saving

@@ -10,6 +10,6 @@
 [pager]
 	branch = false
 [gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
+	program = gpg2
 [url "git@github.com:"]
 	insteadOf = https://github.com/
