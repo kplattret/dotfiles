@@ -56,7 +56,7 @@ set textwidth=100 " Wrap text beyond 100th column
 set foldmethod=indent " Fold code based on indentation
 set undofile " Enable persistent undo
 set undodir=$TMPDIR " Use system temp folder for undo files
-let &colorcolumn="81,101" " Highlight 81st and 101st columns
+set colorcolumn=+1
 
 nmap <Left> :echoe "Use h"<cr>
 nmap <Right> :echoe "Use l"<cr>
@@ -80,8 +80,10 @@ nmap <leader>w :w<cr>
 nmap <leader>sc :vsp db/schema.rb<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>g :Goyo<cr>
-
-nmap <leader>l :set invrelativenumber<cr>
+nmap <leader>n :set invnumber<cr>
+nmap <leader>r :set invrelativenumber<cr>
+nmap <leader>a :call ToggleAlternateFile()<cr>
+nmap <leader>l :call ToggleLineLength(&tw == 100 ? 80 : 100)<cr>
 
 " Bind `q` to close the buffer for help files
 autocmd Filetype help nmap <buffer> q :q<cr>
@@ -114,9 +116,6 @@ let g:lightline = { 'colorscheme': 'onedark' }
 " indentLine options
 let g:indentLine_char = '▏'
 
-" goyo.vim options
-let g:goyo_width = 100
-
 " vim-ripgrep options
 let g:rg_highlight = 1
 
@@ -127,7 +126,6 @@ if executable('rg')
   let g:ctrlp_use_caching = 0
 endif
 
-nmap <leader>a :call ToggleAlternateFile()<cr>
 function! ToggleAlternateFile()
   let extension = expand('%:e')
 
@@ -141,3 +139,13 @@ augroup OpenAllFoldsOnFileOpen
   autocmd!
   autocmd BufRead * normal zR
 augroup END
+
+function! ToggleLineLength(value)
+  let &textwidth = a:value
+
+  if exists('#goyo')
+    execute "Goyo" . a:value
+  else
+    let g:goyo_width = a:value
+  endif
+endfunction
