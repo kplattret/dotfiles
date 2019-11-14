@@ -15,16 +15,21 @@ export EDITOR="vim"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519.pub"
 
-export PATH="$PATH:$HOME/.rbenv/bin"
-eval "$(rbenv init -)"
+if [ -d ~/.rbenv ]; then
+  export PATH="$PATH:$HOME/.rbenv/bin"
+  eval "$(rbenv init -)"
+fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"
+if [ -d ~/.nvm  ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
 
 alias brewup="brew update && brew upgrade && brew doctor"
+alias aptup="sudo apt update && sudo apt upgrade"
 alias gsf="gco staging && git reset --hard origin/master && gm - && gpf"
 
-if [[ -e ~/.local-env-vars ]]; then
+if [ -e ~/.local-env-vars ]; then
   source $HOME/.local-env-vars
 fi
 
