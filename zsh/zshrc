@@ -21,7 +21,7 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-if [ -d ~/.nvm  ]; then
+if [ -d ~/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 fi
@@ -39,5 +39,4 @@ source $DOTFILES/zsh/zsh-functions.sh
 if [[ $OS == "linux" ]]; then
   keychain id_ed25519
   . ~/.keychain/`uname -n`-sh
-  authenticate_op_and_gpg
 fi

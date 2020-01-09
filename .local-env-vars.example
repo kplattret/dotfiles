@@ -3,5 +3,6 @@ export FREENODE_PASSWORD=
 export FREENODE_USERNAME=
 export GPG_USER=
 export OP_SUBDOMAIN=
+export OP_USER=
 export OS=
 export REDIS_URL=

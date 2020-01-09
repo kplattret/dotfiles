@@ -1,8 +1,13 @@
 function opin() {
-  eval $(op signin $OP_SUBDOMAIN)
+  op_user=$(op get item 1Password | \
+    jq --raw-output '.details.fields[] | select(.designation=="username").value')
+
+  if [[ $op_user != $OP_USER ]]; then
+    eval $(op signin $OP_SUBDOMAIN)
+  fi
 }
 
-function authenticate_op_and_gpg() {
+function gpgauth() {
   opin && \
     gpg2 \
     --pinentry-mode loopback \
