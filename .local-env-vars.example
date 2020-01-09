@@ -1,0 +1,7 @@
+export FREENODE_AUTOJOIN=
+export FREENODE_PASSWORD=
+export FREENODE_USERNAME=
+export GPG_USER=
+export OP_SUBDOMAIN=
+export OS=
+export REDIS_URL=
