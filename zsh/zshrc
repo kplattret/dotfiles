@@ -16,27 +16,28 @@ export EDITOR="vim"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519.pub"
 
+# Initialise rbenv if it's installed
 if [ -d ~/.rbenv ]; then
   export PATH="$PATH:$HOME/.rbenv/bin"
   eval "$(rbenv init -)"
 fi
 
+# Load nvm if it's installed
 if [ -d ~/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 fi
 
-alias brewup="brew update && brew upgrade && brew doctor"
-alias aptup="sudo apt update && sudo apt upgrade"
-alias gsf="gco staging && git reset --hard origin/master && gm - && gpf"
-
+# Export local env vars if they exist
 if [ -e ~/.local-env-vars ]; then
   source $HOME/.local-env-vars
 fi
 
-source $DOTFILES/zsh/zsh-functions.sh
-
+# Add SSH key to keychain if on Linux
 if [[ $OS == "linux" ]]; then
   keychain id_ed25519
   . ~/.keychain/`uname -n`-sh
 fi
+
+source $DOTFILES/zsh/zsh-aliases.sh
+source $DOTFILES/zsh/zsh-functions.sh
