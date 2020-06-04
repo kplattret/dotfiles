@@ -14,3 +14,6 @@ alias rdbm="rails db:migrate && rails db:migrate RAILS_ENV=test"
 alias rdbrb="rails db:rollback && rails db:rollback RAILS_ENV=test"
 alias rdbs="rails db:seed && rails db:seed RAILS_ENV=test"
 alias rspec="bundle exec rspec"
+
+# .NET aliases
+alias nuget="mono /usr/local/bin/nuget.exe"

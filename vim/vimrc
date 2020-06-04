@@ -28,7 +28,7 @@ Plug 'elixir-editors/vim-elixir' " Elixir language support
 Plug 'slashmili/alchemist.vim' " Elixir completion, docs and Mix/IEx integration
 Plug 'janko/vim-test' " Wrapper for running tests
 Plug 'leafgarland/typescript-vim' " TypeScript language support
-Plug 'OmniSharp/omnisharp-vim' " C# language support
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' } " C# language support
 call plug#end()
 
 if (empty($TMUX) && has("termguicolors"))
@@ -132,6 +132,8 @@ endif
 let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
+
+autocmd FileType cs setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 function! ToggleAlternateFile()
   let extension = expand('%:e')
