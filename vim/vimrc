@@ -26,7 +26,7 @@ Plug 'jremmen/vim-ripgrep' " Like the Silver Searcher, but faster
 Plug 'jparise/vim-graphql' " GraphQL support
 Plug 'elixir-editors/vim-elixir' " Elixir language support
 Plug 'slashmili/alchemist.vim' " Elixir completion, docs and Mix/IEx integration
-Plug 'janko/vim-test' " Wrapper for running tests
+Plug 'vim-test/vim-test' " Wrapper for running tests on different granularities
 Plug 'leafgarland/typescript-vim' " TypeScript language support
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' } " C# language support
 call plug#end()
@@ -85,7 +85,6 @@ nmap <leader>n :set invnumber<cr>
 nmap <leader>r :set invrelativenumber<cr>
 nmap <leader>a :call ToggleAlternateFile()<cr>
 nmap <leader>l :call ToggleLineLength(&tw == 100 ? 80 : 100)<cr>
-nmap <leader>t : call RunTestsForCurrentFile()<cr>
 
 " Bind `q` to close the buffer for help files
 autocmd Filetype help nmap <buffer> q :q<cr>
@@ -135,6 +134,13 @@ let g:ale_linters = {
 
 autocmd FileType cs setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
+" vim-test mappings
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
 function! ToggleAlternateFile()
   let extension = expand('%:e')
 
@@ -156,13 +162,5 @@ function! ToggleLineLength(value)
     execute "Goyo" . a:value
   else
     let g:goyo_width = a:value
-  endif
-endfunction
-
-function! RunTestsForCurrentFile()
-  let extension = expand('%:e')
-
-  if extension == 'exs'
-    execute "Mix test %"
   endif
 endfunction
