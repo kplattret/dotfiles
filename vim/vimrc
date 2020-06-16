@@ -164,3 +164,8 @@ function! ToggleLineLength(value)
     let g:goyo_width = a:value
   endif
 endfunction
+
+" Source local Vim settings if any
+if filereadable(expand("~/.local_vim_settings"))
+  source ~/.local_vim_settings
+endif

@@ -25,9 +25,9 @@ if [ -d ~/.asdf ]; then
   . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
-# Export local env vars if they exist
-if [ -e ~/.local-env-vars ]; then
-  source $HOME/.local-env-vars
+# Source local env vars if any
+if [ -e ~/.local_env_vars ]; then
+  source $HOME/.local_env_vars
 fi
 
 # Add SSH key to keychain if on Linux
@@ -39,7 +39,7 @@ fi
 source $DOTFILES/zsh/zsh-aliases.sh
 source $DOTFILES/zsh/zsh-functions.sh
 
-# Source secret config if it exists
-if [ -e ~/.zsh_secret_config ]; then
-  source $HOME/.zsh_secret_config
+# Source local ZSH settings if any
+if [ -e ~/.local_zsh_settings ]; then
+  source $HOME/.local_zsh_settings
 fi
