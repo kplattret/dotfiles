@@ -132,7 +132,7 @@ let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
 
-autocmd FileType cs setlocal shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType cs,py setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " vim-test mappings
 nmap <silent> t<C-n> :TestNearest<CR>
