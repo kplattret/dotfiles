@@ -91,8 +91,8 @@ autocmd Filetype help nmap <buffer> q :q<cr>
 " vim-polyglot options
 let g:vim_markdown_conceal = 0
 
-" Enable spell-check for Markdown files
-autocmd FileType markdown setlocal spell
+" Enable spell-check for Markdown and Git commit files
+autocmd FileType markdown,gitcommit setlocal spell
 
 " netrw options
 let g:netrw_banner = 0 " Remove the directory banner
