@@ -70,7 +70,6 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 
-imap kj <esc>
 nmap 0 ^
 nmap j gj
 nmap k gk
