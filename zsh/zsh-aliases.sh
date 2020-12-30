@@ -3,7 +3,7 @@ alias brewup="brew update && brew upgrade && brew doctor"
 alias aptup="sudo apt update && sudo apt upgrade"
 
 # Git custom aliases (in addition to plugin's ones)
-alias gsf="gco staging && git reset --hard origin/master && gm - && gpf"
+alias gsf="gco staging && grhh origin/master && gm - && gpf"
 
 # Rails aliases
 alias rails="bundle exec rails"
