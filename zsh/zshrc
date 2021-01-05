@@ -22,6 +22,9 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 # Add Rebar3
 export PATH="$PATH:$HOME/.cache/rebar3/bin"
 
+# Add Rust
+source "$HOME/.cargo/env"
+
 # Keep the JAVA_HOME var current
 if ! type "java" > /dev/null; then
   export JAVA_HOME=$(/usr/libexec/java_home)
