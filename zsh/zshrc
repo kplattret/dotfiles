@@ -22,11 +22,13 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 # Add Rebar3
 export PATH="$PATH:$HOME/.cache/rebar3/bin"
 
-# Add Rust
-source "$HOME/.cargo/env"
+# Source Cargo env (Rust)
+if [ -d ~/.cargo ]; then
+  source "$HOME/.cargo/env"
+fi
 
 # Keep the JAVA_HOME var current
-if ! type "java" > /dev/null; then
+if ! [[ $(type java) == *"not found"* ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
@@ -38,7 +40,7 @@ fi
 
 # Source local env vars if any
 if [ -e ~/.local_env_vars ]; then
-  source $HOME/.local_env_vars
+  source "$HOME/.local_env_vars"
 fi
 
 # Add SSH key to keychain if on Linux
@@ -47,10 +49,10 @@ if [[ $OS == "linux" ]]; then
   . ~/.keychain/`uname -n`-sh
 fi
 
-source $DOTFILES/zsh/zsh-aliases.sh
-source $DOTFILES/zsh/zsh-functions.sh
+source "$DOTFILES/zsh/zsh-aliases.sh"
+source "$DOTFILES/zsh/zsh-functions.sh"
 
 # Source local ZSH settings if any
 if [ -e ~/.local_zsh_settings ]; then
-  source $HOME/.local_zsh_settings
+  source "$HOME/.local_zsh_settings"
 fi
