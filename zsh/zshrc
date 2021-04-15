@@ -9,8 +9,6 @@ ZSH_DISABLE_COMPFIX=true
 fpath=(/usr/local/share/zsh-completions ${ASDF_DIR}/completions $fpath)
 plugins=(asdf git z)
 
-autoload -Uz compinit && compinit
-
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
