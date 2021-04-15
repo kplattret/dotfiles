@@ -6,8 +6,10 @@ HIST_STAMPS="dd/mm/yyyy"
 COMPLETION_WAITING_DOTS=true
 ZSH_DISABLE_COMPFIX=true
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-plugins=(git z)
+fpath=(/usr/local/share/zsh-completions ${ASDF_DIR}/completions $fpath)
+plugins=(asdf git z)
+
+autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,12 +32,6 @@ fi
 # Keep the JAVA_HOME var current
 if ! [[ $(type java) == *"not found"* ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
-# Load asdf if installed
-if [ -d ~/.asdf ]; then
-  . /usr/local/opt/asdf/asdf.sh
-  . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
 # Source local env vars if any
