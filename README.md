@@ -1,11 +1,11 @@
 # dotfiles
 
-My local development environment setup.
+My development environment setup, for macOS and Ubuntu.
 
 ### Installation
 
-Run this command in Terminal.app on macOS and follow the steps:
+Run this command in a terminal and follow the steps:
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/kplattret/dotfiles/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/kplattret/dotfiles/main/install.sh)"
 ```
