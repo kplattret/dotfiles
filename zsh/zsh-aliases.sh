@@ -17,3 +17,6 @@ alias rspec="bundle exec rspec"
 
 # .NET aliases
 alias nuget="mono /usr/local/bin/nuget.exe"
+
+# Other
+alias k="kubectl"
