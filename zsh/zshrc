@@ -27,8 +27,8 @@ if [ -d ~/.cargo ]; then
   source "$HOME/.cargo/env"
 fi
 
-# Keep the JAVA_HOME var current
-if ! [[ $(type java) == *"not found"* ]]; then
+# Keep the JAVA_HOME var current if on macOS
+if [[ $OS == "macos" ]] && [[ $(type java) != *"not found"* ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
@@ -38,7 +38,7 @@ if [ -e ~/.local_env_vars ]; then
 fi
 
 # Add SSH key to keychain if on Linux
-if [[ $OS == "linux" ]]; then
+if [[ $OS == "linux" ]] && [ -d ~/.keychain ]; then
   keychain id_ed25519
   . ~/.keychain/`uname -n`-sh
 fi
