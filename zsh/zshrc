@@ -50,3 +50,7 @@ source "$DOTFILES/zsh/zsh-functions.sh"
 if [ -e ~/.local_zsh_settings ]; then
   source "$HOME/.local_zsh_settings"
 fi
+
+# Add Terraform auto-completion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
