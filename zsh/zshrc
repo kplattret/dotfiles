@@ -54,3 +54,6 @@ fi
 # Add Terraform auto-completion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# Set SSH agent socket file location
+SSH_AUTH_SOCK="~/.ssh/agent"
