@@ -35,3 +35,13 @@ function jlenc() {
     rm $file_path && \
     less "${file_path}.asc"
 }
+
+function lsk() {
+  # Learn PGP keys from current security key
+  gpg-connect-agent "scd serialno" "learn --force" /bye
+
+  # Learn SSH resident key
+  ssh-keygen -K && \
+    rm ./id_ed25519_sk_rk.pub && \
+    mv ./id_ed25519_sk_rk ~/.ssh/id_ed25519_sk
+}

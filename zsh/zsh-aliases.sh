@@ -20,4 +20,3 @@ alias nuget="mono /usr/local/bin/nuget.exe"
 
 # Other
 alias k="kubectl"
-alias lsk="gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
