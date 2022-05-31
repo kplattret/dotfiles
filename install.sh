@@ -81,7 +81,8 @@ function installation_files() {
 }
 
 function setup_dotfiles() {
-  rm -rf ~/.gitconfig \
+  rm -rf ~/.cargo/config.toml \
+    ~/.gitconfig \
     ~/.gitignore_global \
     ~/.ssh/config \
     ~/.tmux.conf \
@@ -89,6 +90,7 @@ function setup_dotfiles() {
     ~/.vimrc \
     ~/.zshrc
 
+  ln -s ~/.dotfiles/cargo/config.toml ~/.cargo/config.toml
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
