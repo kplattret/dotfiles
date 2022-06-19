@@ -45,3 +45,9 @@ function lsk() {
     rm ./id_ed25519_sk_rk.pub && \
     mv ./id_ed25519_sk_rk ~/.ssh/id_ed25519_sk
 }
+
+function brewup() {
+  rm ~/.gitconfig
+  brew update && brew upgrade && brew upgrade --casks --greedy && brew doctor
+  ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+}

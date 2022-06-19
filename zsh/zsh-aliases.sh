@@ -1,5 +1,4 @@
 # Package manager aliases
-alias brewup="brew update && brew upgrade && brew upgrade --casks --greedy && brew doctor"
 alias aptup="sudo apt update && sudo apt upgrade && sudo apt autoremove"
 
 # Git custom aliases (in addition to plugin's ones)
