@@ -25,11 +25,6 @@ if [ -e ~/.cargo/env ]; then
   source "$HOME/.cargo/env"
 fi
 
-# Keep the JAVA_HOME var current if on macOS
-if [[ $OS == "macos" ]] && [[ $(type java) != *"not found"* ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
 # Source local env vars if any
 if [ -e ~/.local_env_vars ]; then
   source "$HOME/.local_env_vars"
