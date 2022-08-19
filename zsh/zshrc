@@ -24,7 +24,7 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/.cache/rebar3/bin"
 
 # Source Cargo env (Rust)
-if [ -d ~/.cargo ]; then
+if [ -e ~/.cargo/env ]; then
   source "$HOME/.cargo/env"
 fi
 
