@@ -48,6 +48,7 @@ function lsk() {
 
 function brewup() {
   rm ~/.gitconfig
-  brew update && brew upgrade && brew upgrade --casks --greedy && brew doctor
+  brew update && brew upgrade && brew upgrade --cask --greedy
+  brew cleanup && brew doctor
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
 }
