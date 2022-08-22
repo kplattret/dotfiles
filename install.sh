@@ -81,7 +81,8 @@ function installation_files() {
 }
 
 function setup_dotfiles() {
-  rm -rf ~/.asdfrc \
+  rm -rf ~/.config/alacritty/alacritty.yml \
+    ~/.asdfrc \
     ~/.cargo/config.toml \
     ~/.gitconfig \
     ~/.gitignore_global \
@@ -93,6 +94,8 @@ function setup_dotfiles() {
     ~/.vimrc \
     ~/.zshrc
 
+  mkdir -p ~/.config/alacritty
+  ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   ln -s ~/.dotfiles/asdf/asdfrc ~/.asdfrc
   mkdir ~/.cargo
   ln -s ~/.dotfiles/cargo/config.toml ~/.cargo/config.toml
