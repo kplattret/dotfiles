@@ -94,11 +94,14 @@ function setup_dotfiles() {
     ~/.zshrc
 
   ln -s ~/.dotfiles/asdf/asdfrc ~/.asdfrc
+  mkdir ~/.cargo
   ln -s ~/.dotfiles/cargo/config.toml ~/.cargo/config.toml
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
+  mkdir ~/.gnupg
   ln -s ~/.dotfiles/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
   ln -s ~/.dotfiles/gnupg/gpg.conf ~/.gnupg/gpg.conf
+  mkdir ~/.ssh
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
   ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/vim ~/.vim
