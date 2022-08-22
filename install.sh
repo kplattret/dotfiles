@@ -85,6 +85,8 @@ function setup_dotfiles() {
     ~/.cargo/config.toml \
     ~/.gitconfig \
     ~/.gitignore_global \
+    ~/.gnupg/gpg-agent.conf \
+    ~/.gnupg/gpg.conf \
     ~/.ssh/config \
     ~/.tmux.conf \
     ~/.vim \
@@ -95,6 +97,8 @@ function setup_dotfiles() {
   ln -s ~/.dotfiles/cargo/config.toml ~/.cargo/config.toml
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
+  ln -s ~/.dotfiles/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+  ln -s ~/.dotfiles/gnupg/gpg.conf ~/.gnupg/gpg.conf
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
   ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/vim ~/.vim
