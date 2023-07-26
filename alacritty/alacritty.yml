@@ -1,6 +1,13 @@
 font:
-  size: 14.5
+  normal:
+    family: "CodeNewRoman Nerd Font"
+  size: 16
 shell:
   program: /bin/zsh
   args:
     - --login
+window:
+  decorations: buttonless
+  padding:
+    x: 5
+    y: 5
