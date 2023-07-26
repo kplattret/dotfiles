@@ -5,7 +5,7 @@
 [commit]
 	gpgsign = true
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore_global
 [pager]
 	branch = false

@@ -20,7 +20,7 @@ function jlnew() {
   z journal
   date_path=$(date +%Y/%m)
   mkdir -vp $date_path
-  vim "${date_path}/$(date +%Y-%m-%d).md"
+  nvim "${date_path}/$(date +%Y-%m-%d).md"
 }
 
 function jlenc() {
