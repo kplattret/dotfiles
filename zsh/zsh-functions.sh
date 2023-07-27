@@ -52,3 +52,12 @@ function brewup() {
   brew cleanup && brew doctor
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
 }
+
+# Toggle Git config
+function tgc() {
+  if [ -e ~/.gitconfig ]; then
+    rm ~/.gitconfig
+  else
+    ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+  fi
+}
