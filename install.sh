@@ -104,6 +104,7 @@ function setup_dotfiles() {
   mkdir ~/.gnupg
   ln -s ~/.dotfiles/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
   ln -s ~/.dotfiles/gnupg/gpg.conf ~/.gnupg/gpg.conf
+  ln -s ~/.dotfiles/nvim ~/.config/nvim/lua/user
   mkdir ~/.ssh
   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
   ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf

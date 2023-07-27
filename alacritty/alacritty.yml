@@ -1,7 +1,7 @@
 font:
   normal:
     family: "CodeNewRoman Nerd Font"
-  size: 16
+  size: 15
 shell:
   program: /bin/zsh
   args:
@@ -9,5 +9,5 @@ shell:
 window:
   decorations: buttonless
   padding:
-    x: 5
-    y: 5
+    x: 4
+    y: 4
