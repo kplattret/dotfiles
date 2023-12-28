@@ -1,0 +1,16 @@
+[font]
+size = 15
+
+[font.normal]
+family = "CodeNewRoman Nerd Font"
+
+[shell]
+args = ["--login"]
+program = "/bin/zsh"
+
+[window]
+decorations = "buttonless"
+
+[window.padding]
+x = 4
+y = 4
