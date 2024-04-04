@@ -7,6 +7,8 @@ return {
     expandtab = true,
     smartindent = true,
     tabstop = 2,
-    shiftwidth = 2
+    shiftwidth = 2,
+    breakindent = true,
+    breakindentopt = "list:4"
   }
 }

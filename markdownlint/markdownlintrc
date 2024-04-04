@@ -1,0 +1,10 @@
+{
+  "indentation": {
+    "indent": 4
+  },
+  "line_length": {
+    "headings": false,
+    "line_length": 100,
+    "stern": true
+  }
+}
