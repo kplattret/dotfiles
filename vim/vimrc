@@ -165,6 +165,6 @@ function! ToggleLineLength(value)
 endfunction
 
 " Source local Vim settings if any
-if filereadable(expand("~/.local_vim_settings"))
-  source ~/.local_vim_settings
+if filereadable(expand("~/.config/local_vim_settings"))
+  source ~/.config/local_vim_settings
 endif

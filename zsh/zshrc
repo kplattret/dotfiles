@@ -29,8 +29,8 @@ if [ -e ~/.cargo/env ]; then
 fi
 
 # Source local env vars if any
-if [ -e ~/.local_env_vars ]; then
-  source "$HOME/.local_env_vars"
+if [ -e ~/.config/local_env_vars ]; then
+  source "$HOME/.config/local_env_vars"
 fi
 
 # Add SSH key to keychain if on Linux
@@ -43,8 +43,8 @@ source "$DOTFILES/zsh/zsh-aliases.sh"
 source "$DOTFILES/zsh/zsh-functions.sh"
 
 # Source local ZSH settings if any
-if [ -e ~/.local_zsh_settings ]; then
-  source "$HOME/.local_zsh_settings"
+if [ -e ~/.config/local_zsh_settings ]; then
+  source "$HOME/.config/local_zsh_settings"
 fi
 
 # Add Terraform auto-completion
