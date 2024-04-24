@@ -6,7 +6,7 @@
 	gpgsign = true
 [core]
 	editor = nvim
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/ignore
 	ignorecase = false
 [pager]
 	branch = false
