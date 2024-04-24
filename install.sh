@@ -110,7 +110,9 @@ function setup_dotfiles() {
   ln -s ~/Code/kplattret/dotfiles/tmux/tmux.conf ~/.tmux.conf
   ln -s ~/Code/kplattret/dotfiles/vim ~/.vim
   ln -s ~/Code/kplattret/dotfiles/vim/vimrc ~/.vimrc
-  ln -s ~/Code/kplattret/dotfiles/zsh/zshrc ~/.zshrc
+  mkdir ~/.config/zsh
+  ln -s ~/Code/kplattret/dotfiles/zsh/zshenv ~/.zshenv
+  ln -s ~/Code/kplattret/dotfiles/zsh/zshrc ~/.config/zsh/.zshrc
 }
 
 
