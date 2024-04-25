@@ -123,6 +123,8 @@ function setup_dotfiles() {
   mkdir ~/.config/zsh
   ln -s ~/Code/kplattret/dotfiles/zsh/zshenv ~/.zshenv
   ln -s ~/Code/kplattret/dotfiles/zsh/zshrc ~/.config/zsh/.zshrc
+
+  touch ~/.config/z
 }
 
 
