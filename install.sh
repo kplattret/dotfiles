@@ -114,7 +114,8 @@ function setup_dotfiles() {
   mkdir ~/.ssh
   ln -s ~/Code/kplattret/dotfiles/ssh/config ~/.ssh/config
 
-  ln -s ~/Code/kplattret/dotfiles/tmux/tmux.conf ~/.tmux.conf
+  mkdir ~/.config/tmux
+  ln -s ~/Code/kplattret/dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
 
   ln -s ~/Code/kplattret/dotfiles/vim ~/.vim
   ln -s ~/Code/kplattret/dotfiles/vim/vimrc ~/.vimrc
