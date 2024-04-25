@@ -17,7 +17,9 @@ export PATH="$HOME/.asdf/shims:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/lo
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519.pub"
 
+export CARGO_HOME="$HOME/.config/cargo"
 export GNUPGHOME="$HOME/.config/gnupg"
+export RUSTUP_HOME="$HOME/.config/rustup"
 export _Z_DATA="$HOME/.config/z"
 
 # Add LLVM to the path
@@ -27,8 +29,8 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$PATH:$HOME/.cache/rebar3/bin"
 
 # Source Cargo env
-if [ -e ~/.cargo/env ]; then
-  source "$HOME/.cargo/env"
+if [ -e ~/.config/cargo/env ]; then
+  source "$HOME/.config/cargo/env"
 fi
 
 # Source local env vars if any

@@ -98,8 +98,8 @@ function setup_dotfiles() {
 
   ln -s ~/Code/kplattret/dotfiles/asdf/asdfrc ~/.asdfrc
 
-  mkdir ~/.cargo
-  ln -s ~/Code/kplattret/dotfiles/cargo/config.toml ~/.cargo/config.toml
+  mkdir ~/.config/cargo
+  ln -s ~/Code/kplattret/dotfiles/cargo/config.toml ~/.config/cargo/config.toml
 
   mkdir ~/.config/git
   ln -s ~/Code/kplattret/dotfiles/git/config ~/.config/git/config
