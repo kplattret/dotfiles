@@ -47,17 +47,17 @@ function lsk() {
 }
 
 function brewup() {
-  rm ~/.gitconfig
+  rm ~/.config/git/config
   brew update && brew upgrade && brew upgrade --cask --greedy
   brew cleanup && brew doctor
-  ln -s ~/Code/kplattret/dotfiles/git/gitconfig ~/.gitconfig
+  ln -s ~/Code/kplattret/dotfiles/git/config ~/.config/git/config
 }
 
 # Toggle Git config
 function tgc() {
-  if [ -e ~/.gitconfig ]; then
-    rm ~/.gitconfig
+  if [ -e ~/.config/git/config ]; then
+    rm ~/.config/git/config
   else
-    ln -s ~/Code/kplattret/dotfiles/git/gitconfig ~/.gitconfig
+    ln -s ~/Code/kplattret/dotfiles/git/config ~/.config/git/config
   fi
 }
