@@ -110,6 +110,9 @@ function setup_dotfiles() {
   ln -s ~/Code/kplattret/dotfiles/gnupg/gpg-agent.conf ~/.config/gnupg/gpg-agent.conf
   ln -s ~/Code/kplattret/dotfiles/gnupg/gpg.conf ~/.gconfig/nupg/gpg.conf
 
+  mkdir ~/.config/npm
+  ln -s ~/Code/kplattret/dotfiles/npm/npmrc ~/.config/npm/npmrc
+
   ln -s ~/Code/kplattret/dotfiles/nvim ~/.config/nvim/lua/user
 
   mkdir ~/.ssh

@@ -1,0 +1,4 @@
+prefix=${HOME}/.config/npm
+cache=${HOME}/.config/npm
+init-module=${HOME}/.config/npm/config/npm-init.js
+logs-dir=${HOME}/.config/npm/_logs

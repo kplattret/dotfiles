@@ -33,6 +33,7 @@ export ASDF_DATA_DIR="$HOME/.config/asdf"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/tool-versions"
 export CARGO_HOME="$HOME/.config/cargo"
 export GNUPGHOME="$HOME/.config/gnupg"
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export RUSTUP_HOME="$HOME/.config/rustup"
 export _Z_DATA="$HOME/.config/z"
 
