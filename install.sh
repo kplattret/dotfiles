@@ -95,39 +95,31 @@ function setup_dotfiles() {
 
   mkdir -p ~/.config/alacritty
   ln -s ~/Code/kplattret/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-
   mkdir ~/.config/asdf
   ln -s ~/Code/kplattret/dotfiles/asdf/asdfrc ~/.config/asdf/asdfrc
-
   mkdir ~/.config/cargo
   ln -s ~/Code/kplattret/dotfiles/cargo/config.toml ~/.config/cargo/config.toml
-
   mkdir ~/.config/git
   ln -s ~/Code/kplattret/dotfiles/git/config ~/.config/git/config
   ln -s ~/Code/kplattret/dotfiles/git/ignore ~/.config/git/ignore
-
   mkdir ~/.config/gnupg
   ln -s ~/Code/kplattret/dotfiles/gnupg/gpg-agent.conf ~/.config/gnupg/gpg-agent.conf
   ln -s ~/Code/kplattret/dotfiles/gnupg/gpg.conf ~/.gconfig/nupg/gpg.conf
-
+  mkdir ~/.config/less
+  mkdir ~/.config/node
   mkdir ~/.config/npm
   ln -s ~/Code/kplattret/dotfiles/npm/npmrc ~/.config/npm/npmrc
-
   ln -s ~/Code/kplattret/dotfiles/nvim ~/.config/nvim/lua/user
-
+  mkdir ~/.config/psql
   mkdir ~/.ssh
   ln -s ~/Code/kplattret/dotfiles/ssh/config ~/.ssh/config
-
   mkdir ~/.config/tmux
   ln -s ~/Code/kplattret/dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
-
   ln -s ~/Code/kplattret/dotfiles/vim ~/.vim
   ln -s ~/Code/kplattret/dotfiles/vim/vimrc ~/.vimrc
-
   mkdir ~/.config/zsh
   ln -s ~/Code/kplattret/dotfiles/zsh/zshenv ~/.zshenv
   ln -s ~/Code/kplattret/dotfiles/zsh/zshrc ~/.config/zsh/.zshrc
-
   touch ~/.config/z
 }
 
