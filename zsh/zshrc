@@ -12,7 +12,6 @@ plugins=(git z)
 source $ZSH/oh-my-zsh.sh
 
 path=(
-  $path
   /opt/homebrew/bin
   /opt/homebrew/sbin
   $HOME/.config/asdf/shims
@@ -22,6 +21,7 @@ path=(
   /usr/local/bin
   /usr/local/sbin
   /usr/local/opt/llvm/bin
+  $path
 )
 
 export LANG=en_US.UTF-8
@@ -30,7 +30,6 @@ export SSH_KEY_PATH="$HOME/.ssh/id_ed25519.pub"
 
 export ASDF_CONFIG_FILE="$HOME/.config/asdf/asdfrc"
 export ASDF_DATA_DIR="$HOME/.config/asdf"
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/tool-versions"
 export CARGO_HOME="$HOME/.config/cargo"
 export GNUPGHOME="$HOME/.config/gnupg"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
