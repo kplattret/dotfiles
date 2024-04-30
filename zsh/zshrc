@@ -6,17 +6,26 @@ HIST_STAMPS="dd/mm/yyyy"
 COMPLETION_WAITING_DOTS=true
 ZSH_DISABLE_COMPFIX=true
 
-fpath=(/usr/local/share/zsh-completions ${ASDF_DIR}/completions $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 plugins=(git z)
 
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 export EDITOR="nvim"
-export PATH="$HOME/.asdf/shims:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/bin:\
+  /opt/homebrew/sbin:\
+  $HOME/.config/asdf/shims:\
+  $HOME/bin:\
+  $HOME/.local/bin:\
+  /usr/local/bin:\
+  /usr/local/sbin:\
+  $PATH"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519.pub"
 
+export ASDF_CONFIG_FILE="$HOME/.config/asdf/asdfrc"
+export ASDF_DATA_DIR="$HOME/.config/asdf"
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/tool-versions"
 export CARGO_HOME="$HOME/.config/cargo"
 export GNUPGHOME="$HOME/.config/gnupg"
 export RUSTUP_HOME="$HOME/.config/rustup"

@@ -96,7 +96,8 @@ function setup_dotfiles() {
   mkdir -p ~/.config/alacritty
   ln -s ~/Code/kplattret/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
-  ln -s ~/Code/kplattret/dotfiles/asdf/asdfrc ~/.asdfrc
+  mkdir ~/.config/asdf
+  ln -s ~/Code/kplattret/dotfiles/asdf/asdfrc ~/.config/asdf/asdfrc
 
   mkdir ~/.config/cargo
   ln -s ~/Code/kplattret/dotfiles/cargo/config.toml ~/.config/cargo/config.toml
