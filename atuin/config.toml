@@ -1,0 +1,11 @@
+enter_accept = true
+
+[keys]
+
+[dotfiles]
+enabled = false
+
+[stats]
+
+[sync]
+records = true

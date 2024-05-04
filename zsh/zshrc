@@ -69,3 +69,8 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 # Set SSH agent socket file location
 SSH_AUTH_SOCK="~/.ssh/agent"
+
+# Initialise Atuin
+if [ -e ~/.config/atuin ]; then
+  eval "$(atuin init zsh)"
+fi
