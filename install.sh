@@ -109,7 +109,7 @@ function setup_dotfiles() {
   mkdir ~/.config/node
   mkdir ~/.config/npm
   ln -s ~/Code/kplattret/dotfiles/npm/npmrc ~/.config/npm/npmrc
-  ln -s ~/Code/kplattret/dotfiles/nvim ~/.config/nvim/lua/user
+  ln -s ~/Code/kplattret/dotfiles/nvim ~/.config/nvim
   mkdir ~/.config/psql
   mkdir ~/.ssh
   ln -s ~/Code/kplattret/dotfiles/ssh/config ~/.ssh/config
