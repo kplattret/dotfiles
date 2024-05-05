@@ -71,6 +71,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 SSH_AUTH_SOCK="~/.ssh/agent"
 
 # Initialise Atuin
-if [ -e ~/.config/atuin ]; then
+if [[ $(eval brew list | grep ^atuin$) ]]; then
   eval "$(atuin init zsh)"
 fi
