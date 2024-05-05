@@ -1,4 +1,7 @@
 {
+  "headings": {
+    "siblings_only": true
+  },
   "indentation": {
     "indent": 4
   },
