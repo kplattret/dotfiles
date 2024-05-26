@@ -50,6 +50,9 @@ ln -sf ~/Code/kplattret/dotfiles/gnupg/gpg.conf ~/.config/gnupg/gpg.conf
 rm ~/.lesshst
 mkdir ~/.config/less
 
+# Markdown lint
+ln -sf ~/Code/kplattret/dotfiles/markdownlint/markdownlintrc ~/.markdownlintrc
+
 # Neovim
 rm -rf ~/.cache/nvim ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
 ln -sf ~/Code/kplattret/dotfiles/nvim ~/.config/nvim
@@ -72,6 +75,10 @@ ln -sf ~/Code/kplattret/dotfiles/ssh/config ~/.ssh/config
 rm ~/.tmux.conf
 mkdir ~/.config/tmux
 ln -sf ~/Code/kplattret/dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
+
+# Vale
+mkdir ~/.config/vale
+ln -sf ~/Code/kplattret/dotfiles/vale/vale.ini ~/.config/vale/vale.ini
 
 # TODO: Move ~/.vim to ~/.config
 #       Move ~/.vimrc to ~/.config
