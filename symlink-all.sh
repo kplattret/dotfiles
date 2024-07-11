@@ -76,10 +76,6 @@ rm ~/.tmux.conf
 mkdir ~/.config/tmux
 ln -sf ~/Code/kplattret/dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
 
-# Vale
-mkdir ~/.config/vale
-ln -sf ~/Code/kplattret/dotfiles/vale/vale.ini ~/.config/vale/vale.ini
-
 # TODO: Move ~/.vim to ~/.config
 #       Move ~/.vimrc to ~/.config
 #       Or remove Vim config altogether
