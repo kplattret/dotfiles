@@ -9,7 +9,7 @@ function opin() {
 
 function gpgauth() {
   opin && \
-    gpg2 \
+    gpg \
     --pinentry-mode loopback \
     --passphrase $(op get item pass.pgp | jq --raw-output '.details.password') \
     --decrypt \
@@ -26,7 +26,7 @@ function jlnew() {
 function jlenc() {
   file_path="$(date +%Y/%m/%Y-%m-%d).md"
   opin && \
-    gpg2 \
+    gpg \
     --pinentry-mode loopback \
     --passphrase $(op get item pass.pgp | jq --raw-output '.details.password') \
     --sign --encrypt --armor \
