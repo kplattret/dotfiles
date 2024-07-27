@@ -5,16 +5,18 @@
 return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
-  config = {
-    rust_analyzer = {
-      settings = {
-        ["rust-analyzer"] = {
-          cargo = {
-            -- Make rust-analyzer use its own profile
-            -- Uses more disk space as it will create a separate folder in `targets`
-            -- Allows to run `cargo build` without being blocked
-            extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev" },
-            extraArgs = { "--profile", "rust-analyzer" },
+  opts = {
+    config = {
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              -- Make rust-analyzer use its own profile
+              -- Uses more disk space as it will create a separate folder in `targets`
+              -- Allows to run `cargo build` without being blocked
+              extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev" },
+              extraArgs = { "--profile", "rust-analyzer" },
+            },
           },
         },
       },
