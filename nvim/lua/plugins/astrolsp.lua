@@ -7,6 +7,13 @@ return {
   ---@type AstroLSPOpts
   opts = {
     config = {
+      remark_ls = {
+        settings = {
+          remark = {
+            requireConfig = true,
+          },
+        },
+      },
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
