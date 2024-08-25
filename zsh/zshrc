@@ -41,6 +41,11 @@ export PSQL_HISTORY="$HOME/.config/psql/history"
 export RUSTUP_HOME="$HOME/.config/rustup"
 export _Z_DATA="$HOME/.config/z"
 
+# Initialise asdf
+if [[ $OS == "linux" ]] && [ -d ~/.config/asdf/src-repo ]; then
+  . "$HOME/.config/asdf/src-repo/asdf.sh"
+fi
+
 # Source Cargo env
 if [ -e ~/.config/cargo/env ]; then
   source "$HOME/.config/cargo/env"
@@ -73,6 +78,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 SSH_AUTH_SOCK="~/.ssh/agent"
 
 # Initialise Atuin
-if [[ $(eval brew list | grep ^atuin$) ]]; then
+if [[ $OS == "macos" ]] && [[ $(eval brew list | grep ^atuin$) ]]; then
   eval "$(atuin init zsh)"
 fi
