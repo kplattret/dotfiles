@@ -50,9 +50,6 @@ ln -sf ~/Code/kplattret/dotfiles/gnupg/gpg.conf ~/.config/gnupg/gpg.conf
 rm ~/.lesshst
 mkdir ~/.config/less
 
-# Markdown lint
-ln -sf ~/Code/kplattret/dotfiles/markdownlint/markdownlintrc ~/.markdownlintrc
-
 # Neovim
 rm -rf ~/.cache/nvim ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
 ln -sf ~/Code/kplattret/dotfiles/nvim ~/.config/nvim
