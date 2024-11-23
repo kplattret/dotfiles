@@ -81,3 +81,8 @@ SSH_AUTH_SOCK="~/.ssh/agent"
 if [[ $OS == "macos" ]] && [[ $(eval brew list | grep ^atuin$) ]]; then
   eval "$(atuin init zsh)"
 fi
+
+# Source Z if using script
+if [ -e ~/.config/z.sh ]; then
+  source "$HOME/.config/z.sh"
+fi
