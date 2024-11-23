@@ -42,7 +42,7 @@ export RUSTUP_HOME="$HOME/.config/rustup"
 export _Z_DATA="$HOME/.config/z"
 
 # Initialise asdf
-if [[ $OS == "linux" ]] && [ -d ~/.config/asdf/src-repo ]; then
+if [[ $OS == "ubuntu" ]] && [ -d ~/.config/asdf/src-repo ]; then
   . "$HOME/.config/asdf/src-repo/asdf.sh"
 fi
 
@@ -56,8 +56,8 @@ if [ -e ~/.config/local_env_vars ]; then
   source "$HOME/.config/local_env_vars"
 fi
 
-# Add SSH key to keychain if on Linux
-if [[ $OS == "linux" ]] && [ -d ~/.keychain ]; then
+# Add SSH key to keychain if on Ubuntu
+if [[ $OS == "ubuntu" ]] && [ -d ~/.keychain ]; then
   keychain id_ed25519
   . ~/.keychain/`uname -n`-sh
 fi
