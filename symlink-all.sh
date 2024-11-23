@@ -27,7 +27,7 @@ mkdir ~/.config/atuin
 ln -sf ~/Code/kplattret/dotfiles/atuin/config.toml ~/.config/atuin/config.toml
 
 # Bash
-rm ~/.bash_history ~/.bash_profile
+rm ~/.bash_history ~/.bash_logout ~/.bash_profile ~/.bashrc
 
 # Cargo
 rm -rf ~/.cargo
