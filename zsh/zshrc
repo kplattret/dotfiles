@@ -78,8 +78,8 @@ complete -o nospace -C /usr/bin/terraform terraform
 SSH_AUTH_SOCK="~/.ssh/agent"
 
 # Initialise Atuin
-if [[ $OS == "macos" ]] && [[ $(eval brew list | grep ^atuin$) ]] ||
-  [[ $OS == "ubuntu" ]] && [[ $(eval ls ~/.config/cargo/bin/ | grep ^atuin$) ]]; then
+if { [[ $OS == "macos" ]] && [[ $(brew list | grep ^atuin$) ]] } ||
+  { [[ $OS == "ubuntu" ]] && [[ $(ls ~/.config/cargo/bin/ | grep ^atuin$) ]] }; then
   eval "$(atuin init zsh)"
 fi
 
