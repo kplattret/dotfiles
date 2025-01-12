@@ -4,7 +4,7 @@ size = 15
 [font.normal]
 family = "CodeNewRoman Nerd Font"
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/bin/zsh"
 
@@ -14,3 +14,5 @@ decorations = "buttonless"
 [window.padding]
 x = 4
 y = 4
+
+[terminal]
