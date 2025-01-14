@@ -28,5 +28,8 @@ return {
         },
       },
     },
+    formatting = {
+      timeout_ms = 3000,
+    },
   },
 }
