@@ -9,7 +9,10 @@ ZSH_DISABLE_COMPFIX=true
 fpath=(/usr/local/share/zsh-completions $fpath)
 plugins=(git z)
 
-source $ZSH/oh-my-zsh.sh
+# Source Oh My Zsh
+if [ -e $ZSH/oh-my-zsh.sh ]; then
+  source $ZSH/oh-my-zsh.sh
+fi
 
 path=(
   /opt/homebrew/bin
@@ -78,7 +81,7 @@ SSH_AUTH_SOCK="~/.ssh/agent"
 
 # Initialise Atuin
 if { [[ $OS == "macos" ]] && [[ $(brew list | grep ^atuin$) ]] } ||
-  { [[ $OS == "ubuntu" ]] && [[ $(ls ~/.config/cargo/bin/ | grep ^atuin$) ]] }; then
+  { [[ $OS == "ubuntu" ]] && [ -e ~/.config/cargo/bin/atuin ] }; then
   eval "$(atuin init zsh)"
 fi
 
