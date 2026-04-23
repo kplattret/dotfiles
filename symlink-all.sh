@@ -67,6 +67,9 @@ mkdir ~/.config/psql
 rm  ~/.ssh/config
 mkdir ~/.ssh
 ln -sf ~/Code/kplattret/dotfiles/ssh/config ~/.ssh/config
+mkdir ~/.ssh/sockets
+chmod 700 ~/.ssh/sockets
+
 
 # tmux
 rm ~/.tmux.conf
