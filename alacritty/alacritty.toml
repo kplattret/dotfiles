@@ -16,3 +16,10 @@ x = 4
 y = 4
 
 [terminal]
+
+# This is useful in Claude Code for instance
+# to have Shift+Enter create a new line
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\n"
