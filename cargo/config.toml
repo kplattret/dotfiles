@@ -1,2 +1,5 @@
 [net]
 git-fetch-with-cli = true
+
+[registries.truelayer-rustlayer]
+credential-provider = "cargo:token"
