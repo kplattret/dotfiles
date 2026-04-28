@@ -14,6 +14,9 @@ return {
       semantic_tokens = true,
     },
     config = {
+      vale_ls = {
+        root_dir = function(fname) return require("lspconfig.util").root_pattern ".vale.ini"(fname) end,
+      },
       remark_ls = {
         settings = {
           remark = {

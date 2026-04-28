@@ -5,6 +5,8 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.editing-support.conform-nvim" },
+  { import = "astrocommunity.lsp.nvim-lint" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
