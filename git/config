@@ -4,6 +4,8 @@
 	signingkey = 0xF0320335B905CF51
 [commit]
 	gpgsign = true
+[tag]
+	gpgsign = true
 [core]
 	editor = nvim
 	ignorecase = false
